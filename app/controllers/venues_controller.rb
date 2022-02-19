@@ -3,7 +3,7 @@ class VenuesController < ApplicationController
 
   # GET /venues
   def index
-    @venues = Venue.all
+    @venues = Venue.page(params[:page]).per(10)
   end
 
   # GET /venues/1
