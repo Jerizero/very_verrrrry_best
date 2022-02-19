@@ -2,7 +2,7 @@ class Dish < ApplicationRecord
   # Direct associations
 
   has_many   :verybests,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Dish < ApplicationRecord
   def to_s
     name
   end
-
 end

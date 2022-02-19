@@ -13,7 +13,7 @@ class Api::V1::VerybestsController < Api::V1::GraphitiController
     verybest = VerybestResource.build(params)
 
     if verybest.save
-      render jsonapi: verybest, status: 201
+      render jsonapi: verybest, status: :created
     else
       render jsonapi_errors: verybest
     end
@@ -33,7 +33,7 @@ class Api::V1::VerybestsController < Api::V1::GraphitiController
     verybest = VerybestResource.find(params)
 
     if verybest.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: verybest
     end

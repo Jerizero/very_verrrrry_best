@@ -8,8 +8,7 @@ class VenueResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :verybests
+  has_many :verybests
 
   # Indirect associations
-
 end
