@@ -24,7 +24,12 @@ class VerybestsController < ApplicationController
     @verybest = Verybest.new(verybest_params)
 
     if @verybest.save
-      redirect_to @verybest, notice: 'Verybest was successfully created.'
+      message = 'Verybest was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @verybest, notice: message
+      end
     else
       render :new
     end

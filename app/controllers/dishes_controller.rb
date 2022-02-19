@@ -8,6 +8,7 @@ class DishesController < ApplicationController
 
   # GET /dishes/1
   def show
+    @verybest = Verybest.new
   end
 
   # GET /dishes/new
