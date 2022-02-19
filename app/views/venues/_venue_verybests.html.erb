@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Verybests
+
+    <a data-toggle="collapse" href="#venue_verybests_new_form">
+      Add verybest
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @venue.verybests.each do |verybest| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to verybest, verybest %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to verybest, method: :delete, data: { confirm: "Do you really want to delete this verybest" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="venue_verybests_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
