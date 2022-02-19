@@ -3,7 +3,8 @@ class VerybestsController < ApplicationController
 
   # GET /verybests
   def index
-    @verybests = Verybest.page(params[:page]).per(10)
+    @q = Verybest.ransack(params[:q])
+    @verybests = @q.result(:distinct => true).includes(:dish, :venue, :user).page(params[:page]).per(10)
   end
 
   # GET /verybests/1
