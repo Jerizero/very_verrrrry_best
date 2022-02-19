@@ -1,7 +1,6 @@
 <% was_validated = verybest.errors.any? %>
 
 <%= form_with(model: verybest, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for dish_id start -->
   <div class="form-group">
     <% dish_class = "form-control" %>
     <% dish_was_invalid = verybest.errors.include?(:dish) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :dish_id %>
-    <!-- Input for dish_id start -->
     <%= f.collection_select :dish_id, Dish.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for dish_id end -->
     <% if dish_was_invalid %>
       <% verybest.errors.full_messages_for(:dish).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dish_id end -->
-  <!-- Label and input for venue_id start -->
   <div class="form-group">
     <% venue_class = "form-control" %>
     <% venue_was_invalid = verybest.errors.include?(:venue) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :venue_id %>
-    <!-- Input for venue_id start -->
     <%= f.collection_select :venue_id, Venue.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for venue_id end -->
     <% if venue_was_invalid %>
       <% verybest.errors.full_messages_for(:venue).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for venue_id end -->
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = verybest.errors.include?(:user) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
     <% if user_was_invalid %>
       <% verybest.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for notes start -->
   <div class="form-group">
     <% note_class = "form-control" %>
     <% note_was_invalid = verybest.errors.include?(:note) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :notes %>
-    <!-- Input for notes start -->
     <%= f.text_field :notes, class: note_class, placeholder: "Enter note" %>
-    <!-- Input for notes end -->
     <% if note_was_invalid %>
       <% verybest.errors.full_messages_for(:note).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for notes end -->
-  <!-- Label and input for timestamp start -->
   <div class="form-group">
     <% timestamp_class = "form-control" %>
     <% timestamp_was_invalid = verybest.errors.include?(:timestamp) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :timestamp %>
-    <!-- Input for timestamp start -->
     <%= f.text_field :timestamp, class: timestamp_class, placeholder: "Enter timestamp" %>
-    <!-- Input for timestamp end -->
     <% if timestamp_was_invalid %>
       <% verybest.errors.full_messages_for(:timestamp).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,6 +111,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for timestamp end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
